@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Agentic Visualization</h1>
+            <div class="controls">
+                <input type="file" id="fileInput" accept=".md" />
+                <button id="loadSample">Load Sample</button>
+                <button id="clearGraph">Clear Graph</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="graph-container">
+                <svg id="graph"></svg>
+            </div>
+            
+            <div class="info-panel">
+                <h3>File Information</h3>
+                <div id="fileInfo">
+                    <p>No file loaded</p>
+                </div>
+                
+                <h3>Graph Statistics</h3>
+                <div id="graphStats">
+                    <p>Nodes: 0</p>
+                    <p>Links: 0</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Detail Panel -->
+    <div id="detailPanel" class="detail-panel hidden">
+        <div class="detail-header">
+            <h2 id="detailTitle">Node Details</h2>
+            <button id="closeDetail" class="close-btn">&times;</button>
+        </div>
+        <div class="detail-content">
+            <div id="detailMeta" class="detail-meta"></div>
+            <div id="detailBody" class="detail-body"></div>
+        </div>
+    </div>
+    
+    <script type="module" src="app.js"></script>
+</body>
+</html>
