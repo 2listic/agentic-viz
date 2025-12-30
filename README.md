@@ -1,6 +1,6 @@
 # Agentic Visualization
 
-A web application for graph-based visualization of markdown files. Built with vanilla JavaScript, D3.js, and modern CSS, it provides interactive node-link diagrams for document structure exploration.
+A web application for graph-based visualization of markdown files. Built with JavaScript, D3.js, and CSS, it provides interactive node-link diagrams for document structure exploration.
 
 ## Features
 
@@ -98,7 +98,3 @@ Currently uses manual testing. Start the dev server and test file upload, graph 
 1. Follow the code style guidelines in `AGENTS.md`.
 2. Test your changes manually.
 3. Ensure the application builds successfully.
-
-## License
-
-[Add license information here] 
