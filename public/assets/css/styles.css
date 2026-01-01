@@ -84,6 +84,8 @@ header {
     box-shadow: var(--shadow-medium);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 header::before {
@@ -102,9 +104,26 @@ header::before {
     100% { left: 100%; }
 }
 
+.logo {
+    height: 35px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-content {
+    flex: 1;
+    text-align: center;
+}
+
 header h1 {
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     color: var(--text-primary);
     font-weight: 700;
     background: var(--primary-gradient);
@@ -526,6 +545,10 @@ main {
     
     header h1 {
         font-size: 24px;
+    }
+    
+    .logo {
+        height: 28px;
     }
 }
 
