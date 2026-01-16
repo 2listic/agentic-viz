@@ -19,13 +19,18 @@
                 <input type="file" id="fileInput" accept=".md" />
                 <button id="loadSample">Load Sample</button>
                 <button id="clearGraph">Clear Graph</button>
+                <button id="toggle3D" class="toggle-3d">Switch to 3D</button>
             </div>
             </div>
         </header>
         
         <main>
-            <div class="graph-container">
+            <div class="graph-container" id="graphContainer">
                 <svg id="graph"></svg>
+                <div class="graph-controls-3d" id="graph3dControls" style="display: none;">
+                    <button id="resetCamera">Reset Camera</button>
+                    <button id="zoomToFit">Fit to View</button>
+                </div>
             </div>
             
             <div class="info-panel">

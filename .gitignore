@@ -1,1 +1,4 @@
 node_modules
+.opencode/
+dist/
+test-3d.html

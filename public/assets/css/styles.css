@@ -207,6 +207,37 @@ header h1 {
     background: var(--secondary-gradient);
 }
 
+.controls button#toggle3D {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.controls button#toggle3D.active-3d {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+}
+
+.controls button#toggle3D::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.controls button#toggle3D:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+
+
 main {
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -239,6 +270,71 @@ main {
     width: 100%;
     height: 100%;
     border-radius: 20px;
+}
+
+/* 3D specific styles */
+.graph-container[data-view="3d"] {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.graph-container[data-view="3d"] #graph {
+    background: transparent;
+}
+
+/* 3D overlay controls */
+.graph-controls-3d {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.graph-controls-3d button {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.graph-controls-3d button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* Loading indicator for 3D */
+.loading-3d {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.loading-3d .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .info-panel {

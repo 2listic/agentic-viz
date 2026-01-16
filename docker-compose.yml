@@ -1,6 +1,28 @@
 services:
-  agentic-viz:
-    build: .
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "127.0.0.1:3002:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
     ports:
       - "127.0.0.1:8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
     restart: unless-stopped
